@@ -75,6 +75,11 @@ func main() {
 	r.Get("/stats", routes.Stats)
 	r.Get("/users/{user}", routes.User)
 
+	r.Route("/admin", func(r chi.Router) {
+		r.Get("/", routes.Admin)
+		r.Get("/solutions", routes.AdminSolutions)
+	})
+
 	certManager := autocert.Manager{
 		Cache:      autocert.DirCache("certs"),
 		Prompt:     autocert.AcceptTOS,
