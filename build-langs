@@ -11,6 +11,7 @@ declare -A urls=(
     ["Bash"]="//www.gnu.org/software/bash/"
     ["Brainfuck"]="//github.com/code-golf/code-golf/tree/master/langs/brainfuck/"
     ["C"]="//bellard.org/tcc/"
+    ["Go"]="//go.dev"
     ["Haskell"]="//www.haskell.org/ghc/"
     ["J"]="http://jsoftware.com"
     ["JavaScript"]="//v8.dev"
@@ -63,6 +64,7 @@ for name in "${sorted_names[@]}"; do
     ver=${ver#Swift }
     ver=${ver#The Glorious }
     ver=${ver#This is }
+    ver=${ver#go go}
     ver=${ver#rustc }
     ver=${ver/ation/er}
     ver=${ver/built /}
@@ -72,6 +74,7 @@ for name in "${sorted_names[@]}"; do
     ver=${ver//version /}
     ver=${ver%.}
     ver=${ver% d8> }
+    ver=${ver% linux/amd64}
     ver=${ver%  Copyright (C) 1994-2019 Lua.org, PUC-Rio}
     ver=${ver/ (*/}
 
