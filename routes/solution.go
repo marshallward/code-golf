@@ -47,16 +47,18 @@ func Solution(w http.ResponseWriter, r *http.Request) {
 	out := struct {
 		Argv                []string
 		Diff, Err, Exp, Out string
+		ExitCode            int
 		Pass, LoggedIn      bool
 		Took                time.Duration
 		Trophies            []string
 	}{
 		Argv:     score.Args,
 		Err:      string(terminal.Render(score.Stderr)),
+		ExitCode: score.ExitCode,
 		Exp:      score.Answer,
+		LoggedIn: userID != 0,
 		Out:      string(score.Stdout),
 		Pass:     score.Pass,
-		LoggedIn: userID != 0,
 		Took:     score.Took,
 	}
 

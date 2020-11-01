@@ -17,6 +17,7 @@ const timeout = 7 * time.Second
 type Scorecard struct {
 	Answer         string
 	Args           []string
+	ExitCode       int
 	Pass, Timeout  bool
 	Stderr, Stdout []byte
 	Took           time.Duration
@@ -129,6 +130,10 @@ func Play(ctx context.Context, holeID, langID, code string) (score Scorecard) {
 	score.Took = timeout - time.Until(deadline)
 
 	if err != nil {
+		if err, ok := err.(*exec.ExitError); ok {
+			score.ExitCode = err.ExitCode()
+		}
+
 		if errors.Is(ctx.Err(), context.DeadlineExceeded) {
 			score.Timeout = true
 			stderr.WriteString("Killed for exceeding the 7s timeout.")

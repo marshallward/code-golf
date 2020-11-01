@@ -3,9 +3,12 @@ package main
 import (
 	"crypto/tls"
 	"database/sql"
+	"errors"
+	"io/ioutil"
 	"log"
 	"math/rand"
 	"net/http"
+	"os"
 	"syscall"
 	"time"
 
@@ -167,6 +170,18 @@ func main() {
 			}
 		}
 	}()
+
+	// Create a cgroup and set some limits.
+	err = os.Mkdir("/sys/fs/cgroup/pids/code-golf", 0)
+	if err != nil && !errors.Is(err, os.ErrExist) {
+		panic(err)
+	}
+
+	if err := ioutil.WriteFile(
+		"/sys/fs/cgroup/pids/code-golf/pids.max", []byte("24"), 0,
+	); err != nil {
+		panic(err)
+	}
 
 	log.Println("Listening…")
 

@@ -30,6 +30,14 @@ int main(__attribute__((unused)) int argc, char *argv[]) {
         return 1;
     }
 
+    FILE *fp = fopen("/sys/fs/cgroup/pids/code-golf/cgroup.procs", "w");
+    if (fp == NULL) {
+        perror("fopen cgroup");
+        return 1;
+    }
+    fprintf(fp, "%d", getpid());
+    fclose(fp);
+
     if (mount("rootfs", "rootfs", "bind", MS_BIND|MS_REC, NULL) < 0) {
         perror("mount bind");
         return 1;
