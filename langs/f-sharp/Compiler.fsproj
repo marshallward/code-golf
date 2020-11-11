@@ -1,9 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <ItemGroup>
-        <Compile Include="Compiler.fs" />
+        <Compile Include="Compiler.fs"/>
     </ItemGroup>
     <ItemGroup>
-        <TrimmerRootAssembly Include="netstandard" />
+        <TrimmerRootAssembly Include="netstandard"/>
+        <TrimmerRootAssembly Include="System.Runtime"/>
     </ItemGroup>
     <PropertyGroup>
         <OutputType>Exe</OutputType>
