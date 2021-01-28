@@ -21,7 +21,8 @@ require (
 	github.com/pmezard/go-difflib v1.0.0
 	github.com/shurcooL/githubv4 v0.0.0-20201206200315-234843c633fa
 	github.com/shurcooL/graphql v0.0.0-20200928012149-18c5c3165e3a // indirect
-	github.com/tdewolff/minify/v2 v2.9.11
+	github.com/tdewolff/minify/v2 v2.9.10
+	github.com/tdewolff/parse/v2 v2.5.8 // indirect
 	golang.org/x/crypto v0.0.0-20201221181555-eec23a3978ad
 	golang.org/x/net v0.0.0-20210119194325-5f4716e94777 // indirect
 	golang.org/x/oauth2 v0.0.0-20210126194326-f9ce19ea3013

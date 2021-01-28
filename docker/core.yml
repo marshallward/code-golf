@@ -11,6 +11,8 @@ services:
       PGSSLMODE: disable
       PGUSER:    code-golf
     privileged: true
+    ulimits:
+      stack: 1048576
     volumes:
       - ..:/go
   db:
