@@ -131,18 +131,18 @@ character(len=32) :: s
 integer :: i
 
 ! Printing
-print '(a)', "Hello, World!"
+print "(a)", "Hello, World!"
 
 ! Looping
 do i = 0, 9
-    print '(i0)', i
+    print "(i0)", i
 end do
 
 ! Accessing arguments
 ! (NOTE: getarg() and iargc() are GNU Fortran extensions)
 do i = 1, iargc()
     call getarg(i,s)
-    print '(a)', s
+    print "(a)", s
 end do
 
 end
