@@ -130,6 +130,7 @@ example = '''
 character(len=32) :: s
 integer :: i
 
+
 ! Printing
 print "(a)", "Hello, World!"
 
